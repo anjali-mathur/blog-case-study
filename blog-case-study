@@ -1,0 +1,239 @@
+
+ <div class="container">
+    <div class="row">
+    <div class="section-header col-sm-12 text-center">
+    <h3 class="block-tittle"> {{ page_title }} </h3>
+  </div>
+</div>
+ 
+{% if blog.tags.size > 0 %}
+
+            <ul id="SiteNav" class="site-nav table-cell list--inline blog-filter-nav">
+              <li><a class="site-nav__link site-nav__link--main" href="/blogs/{{ blog.handle }}">{{ 'blogs.article.all_topics' | t }}</a></li>
+              {% for tag in blog.all_tags %}
+              {%if tag contains 'tag_' %}
+              {% assign tags = tag | split: '_' %}
+              <li><a class="site-nav__link site-nav__link--main" href="/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}" {% if current_tags contains tag %}selected{% endif %}>{{ tags[1] }}</a></li>
+              {%endif%}
+              {% endfor %}
+            </ul>
+
+            {% endif %}
+
+   {% assign top1 = section.settings.htop1 %}
+   {% assign top2 = section.settings.htop2 %}
+   {% assign top3 = section.settings.htop3 %}
+   {% assign top4 = section.settings.htop4 %}
+   {% assign top5 = section.settings.htop5 %}
+   {% assign top6 = section.settings.htop6 %}
+   {% assign top7 = section.settings.htop7 %}
+
+ <div class="case-home p-0">
+  <div class="full-block">
+  <div class="first-bg-div">
+{% for article in blog.articles %}
+{% for tag in article.tags %}
+{% if tag contains top1 %}
+<div id="case1" class="item-start case1-{{forloop.index}} item {{article.tags | join: ' '}}">
+ <div class="row">
+  
+  <div class="img col-md-6 col-lg-8" style="background-image:url({{ article.image.src | img_url: '1000x1000' }})"> 
+     <div class="sade">           
+        <h2 class="h3">{{ article.title  }}</h2>
+      </div>
+    </div>
+    <div class="text col-md-6 col-lg-4 feature-row__text--left">
+      <div class="rte rte-setting featured-row__subtext">
+        <p>{{article.content | strip_html | truncatewords: 80}}</p>
+      </div>
+        
+        <div class="center">
+       <a class="btn" href="{{ article.url }}">view full case study </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endfor %}
+{% endfor %}
+</div>
+  </div>
+   </div>
+   
+   <div class="case3">
+   
+  <div class="row">
+<div class="second-bg-div col-md-4 text-left">  
+{% for article in blog.articles %}
+{% for tags in article.tags %}
+{% if tags contains top2 %}
+<div id="case2" class="item-start case2-{{forloop.index}} item {{article.tags | join: ' '}}">
+  <div class="blog-item"> 
+    <div class="img full-block" style="background-image:url({{ article.image.src | img_url: '800x800' }})">
+      <div class="sade">
+        <a href="{{article.url}}"> <h3>{{ article.title }}</h3></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endfor %}
+{% endfor %}
+</div>
+<div class="third-bg-div col-md-4 text-left">
+{% for article in blog.articles %}
+{% for tages in article.tags %}
+{% if tages contains top3 %}
+<div id="case3" class="item-start case3-{{forloop.index}} item  {{article.tags | join: ' '}}">
+  <div class="blog-item"> 
+    <div class="img full-block" style="background-image:url({{ article.image.src | img_url: '800x800' }})">
+      <div class="sade">
+        <a href="{{article.url}}"> <h3>{{ article.title }}</h3></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endfor %}
+{% endfor %}
+</div>
+<div class="forth-bg-div col-md-4 text-left">
+{% for article in blog.articles %}
+{% for tagfs in article.tags %}
+{% if tagfs contains top4 %}
+  <div id="case4" class="item-start case4-{{forloop.index}} item  {{article.tags | join: ' '}}">
+  <div class="blog-item"> 
+    <div class="img full-block" style="background-image:url({{ article.image.src | img_url: '800x800' }})">
+      <div class="sade">
+        <a href="{{article.url}}"> <h3>{{ article.title }}</h3></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endfor %}
+{% endfor %}
+</div>
+    
+    <div class="fifth-bg-div col-md-4 text-left blog-top-space">
+{% for article in blog.articles %}
+{% for tagfs in article.tags %}
+{% if tagfs contains top5 %}
+  <div id="case5" class="item-start case5-{{forloop.index}} item {{top5}}  {{article.tags | join: ' '}}">
+  <div class="blog-item"> 
+    <div class="img full-block" style="background-image:url({{ article.image.src | img_url: '800x800' }})">
+      <div class="sade">
+        <a href="{{article.url}}"> <h3>{{ article.title }}</h3></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endfor %}
+{% endfor %}
+</div>
+        <div class="six-bg-div col-md-4 text-left blog-top-space">
+{% for article in blog.articles %}
+{% for tagfs in article.tags %}
+{% if tagfs contains top6 %}
+  <div id="case6" class="item-start case6-{{forloop.index}} item {{top6}}  {{article.tags | join: ' '}}">
+  <div class="blog-item"> 
+    <div class="img full-block" style="background-image:url({{ article.image.src | img_url: '800x800' }})">
+      <div class="sade">
+        <a href="{{article.url}}"> <h3>{{ article.title }}</h3></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endfor %}
+{% endfor %}
+</div>
+    
+        <div class="seven-bg-div col-md-4 text-left blog-top-space">
+{% for article in blog.articles %}
+{% for tagfs in article.tags %}
+{% if tagfs contains top7 %}
+  <div id="case7" class="item-start case7-{{forloop.index}} item {{top7}} {{article.tags | join: ' '}}">
+  <div class="blog-item"> 
+    <div class="img full-block" style="background-image:url({{ article.image.src | img_url: '800x800' }})">
+      <div class="sade">
+        <a href="{{article.url}}"> <h3>{{ article.title }}</h3></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endfor %}
+{% endfor %}
+</div>
+    
+     </div>
+  </div>
+</div>
+
+<div class="svg-wave">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1910px" height="265px" viewBox="0 0 1910 265" enable-background="new 0 0 1910 265" xml:space="preserve">
+<g id="Shape_1">
+	<g>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#D7E2F3" d="M-5.51,269.319h1920V57.764l-1-26.444
+			c-526-122.5-1163.985,185.532-1490,180c-230.439-3.91-404.388-31.423-429-35.495V269.319z"/>
+	</g>
+</g>
+</svg>
+			</div>
+
+
+
+
+
+{% schema %}
+  {
+    "name":  "Blog pages",
+    "settings": [
+{
+"type": "text",
+"id": "htop1",
+"label": "First tag",
+"default": "Tag"
+},
+{
+"type": "text",
+"id": "htop2",
+"label": "second tag",
+"default": "Tag"
+},
+{
+"type": "text",
+"id": "htop3",
+"label": "third tag",
+"default": "Tag"
+},
+{
+"type": "text",
+"id": "htop4",
+"label": "fourth tag",
+"default": "Tag"
+},
+{
+"type": "text",
+"id": "htop5",
+"label": "fifth tag",
+"default": "Tag"
+},
+{
+"type": "text",
+"id": "htop6",
+"label": "sixth tag",
+"default": "Tag"
+},
+{
+"type": "text",
+"id": "htop7",
+"label": "seventh tag",
+"default": "Tag"
+}
+    ]
+  }
+{% endschema %}
